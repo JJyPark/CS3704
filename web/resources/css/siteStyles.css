@@ -9,17 +9,17 @@ html, body {
     from examples below or select your own. See more HTML colors at 
     http://www.w3schools.com/colors/colors_names.asp
     -------------------------------------------------------------*/
-     /*background-color: #F0F8FF;    AliceBlue */
+    /*background-color: #F0F8FF;    AliceBlue */
     /* background-color: #F0FFFF;   /* Azure */
     /* background-color: #F5F5DC;   /* Beige */
-     /*background-color: #DCDCDC;    Gainsboro */
+    /*background-color: #DCDCDC;    Gainsboro */
     /* background-color: #FFFFF0;   /* Ivory */
     /* background-color: #FAF0E6;   /* Linen */
     /* background-color: #FDF5E6;    OldLace */
     /* background-color: #FFEFD5;   /* PapayaWhip */
     /* background-color: #F5DEB3;   /* Wheat */
-     /*background-color: #B0E0E6;    PowderBlue */
-     background-color: 	#F8F8FF;
+    /*background-color: #B0E0E6;    PowderBlue */
+    background-color: 	#F8F8FF;
 
     /* Stretch the background image to cover the entire screen. 
     This is used only if you choose to display a background image. */
@@ -491,4 +491,27 @@ if content overflows an element's box.
 /* Leave 10px pading on top for the ui-button elements */
 .ui-button {
     margin-top: 10px !important;
+}
+
+/* 
+Place the logo image on the left top corner per reference
+<h:panelGrid columns="2" columnClasses="leftTopCornerAlign, rightTopCornerAlign">
+in headerTemplate.xhtml
+*/
+.leftTopCornerAlign {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    padding: 10px;
+}
+/* 
+Place the navigation menu bar on the right top corner per reference
+<h:panelGrid columns="2" columnClasses="leftTopCornerAlign, rightTopCornerAlign">
+in headerTemplate.xhtml 
+*/
+.rightTopCornerAlign {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
 }

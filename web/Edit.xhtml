@@ -17,16 +17,6 @@ Copyright © 2016 Osman Balci. All rights reserved.
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" columnClasses="columnOne, columnTwo" rendered="#{jobAppController.selected != null}">
-
-                        <!-- No need for the user to be concerned about the database Primary Key id, 
-                        which is auto-generated on the server side.
-                        
-                        <p:outputLabel value="#{bundle.EditJobAppLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{movieStarController.selected.id}" 
-                                     title="#{bundle.EditJobAppTitle_id}" required="true" 
-                                     requiredMessage="#{bundle.EditJobAppRequiredMessage_id}"/>
-                        -->
-
                         <p:outputLabel value="Time" for="time" />
                         <p:inputText id="time" styleClass="dataFields" value="#{jobAppController.selected.time}" 
                                      title="Time" required="true" 

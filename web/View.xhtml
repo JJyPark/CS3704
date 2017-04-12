@@ -18,14 +18,6 @@ Copyright © 2016 Osman Balci. All rights reserved.
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" columnClasses="columnOne, columnTwo" rendered="#{jobAppController.selected != null}">
-
-                        <!-- No need for the user to be concerned about the database Primary Key id, 
-                        which is auto-generated on the server side.
-                        
-                        <h:outputText value="#{bundle.ViewJobAppLabel_id}"/>
-                        <h:outputText value="#{jobAppController.selected.id}" title="#{bundle.ViewJobAppTitle_id}"/>
-                        -->
-
                         <h:outputText value="ID"/>
                         <h:outputText value="#{jobAppController.selected.id}" title="ID"/>
 
