@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Created by Osman Balci on 2016.11.22 
+Copyright © 2016 Osman Balci. All rights reserved.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="JobAppViewDlg" widgetVar="JobAppViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit">
+
+            <h:form id="JobAppViewForm" class="ui-datatable-data">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="columnOne, columnTwo" rendered="#{jobAppController.selected != null}">
+
+                        <!-- No need for the user to be concerned about the database Primary Key id, 
+                        which is auto-generated on the server side.
+                        
+                        <h:outputText value="#{bundle.ViewJobAppLabel_id}"/>
+                        <h:outputText value="#{jobAppController.selected.id}" title="#{bundle.ViewJobAppTitle_id}"/>
+                        -->
+
+                        <h:outputText value="ID"/>
+                        <h:outputText value="#{jobAppController.selected.id}" title="ID"/>
+
+                        <h:outputText value="Time"/>
+                        <h:outputText value="#{jobAppController.selected.time}" title="Time"/>
+
+                        <h:outputText value="Company"/>
+                        <h:outputText value="#{jobAppController.selected.company}" title="Company"/>
+
+                        <h:outputText value="Position"/>
+                        <h:outputText value="#{jobAppController.selected.position}" title="Position"/>
+
+                        <h:outputText value="Location"/>
+                        <h:outputText value="#{jobAppController.selected.location}" title="Location"/>
+
+                        <h:outputText value="TypeOfWork"/>
+                        <h:outputText value="#{jobAppController.selected.typeOfWork}" title="Type Of Work"/>
+                    </p:panelGrid>
+                </h:panelGroup>
+
+                <h:panelGroup>
+                    <p:spacer height="10"/> 
+                    <div align="center">
+                        <!-- CLOSE button -->   
+                        <p:commandButton value="#{bundle.Close}" onclick="JobAppViewDialog.hide()" styleClass="commandButton" icon="ui-icon-close"/>
+                    </div>
+                </h:panelGroup>
+                
+            </h:form>
+            
+        </p:dialog>
+    </ui:composition>
+</html>

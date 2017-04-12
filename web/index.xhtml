@@ -1,14 +1,54 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-    </h:body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created by Jisu You on 2017.3.1 
+Copyright © 2017 Jisu You. All rights reserved.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <!-- Do not enter tags before the composition line since they are ignored by JSF -->
+
+    <!-- This page is constructed based on the siteTemplate -->
+    <ui:composition template="/template/siteTemplate.xhtml">
+
+        <!-- Create the content for this page below -->
+        <ui:define name="editableContent">
+
+            <!-- 
+            =================================================================================
+            This Image Slider is adapted from http://www.menucool.com/javascript-image-slider 
+            It uses the following files:
+                - js-image-slider.css
+                - js-image-slider.js
+                - bullet.png
+
+            The following references are included in the siteTemplate.xhtml file:
+                <h:outputStylesheet library="css" name="js-image-slider.css" />
+                <script src="resources/js/js-image-slider.js" type="text/javascript"></script>
+            =================================================================================
+            -->
+
+            <div id="sliderFrame">
+                <div id="slider">
+                    <img src="resources/images/hr.png"/>
+                </div>
+
+                <!--
+                display: none; is commonly used with JavaScript to hide and show elements without
+                deleting and recreating them. The captions below are not shown when this page is rendered.
+                
+                target="_blank" shows the page in a new window. This way, when the user goes back to this page,
+                the location of the sliding image is preserved.
+                -->
+
+            </div>
+            <br /><br />
+
+        </ui:define>
+
+    </ui:composition>
+    <!-- Do not enter tags after the composition line since they are ignored by JSF -->
+
+</html>
