@@ -1,3 +1,6 @@
+/*
+ *Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17 
+ */
 package com.mycompany.jsfclasses;
 
 import com.mycompany.entityclasses.JobApp;

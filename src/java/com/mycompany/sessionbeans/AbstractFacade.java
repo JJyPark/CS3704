@@ -1,6 +1,5 @@
 /*
- * Created by Jisu You on 2017.04.12  * 
- * Copyright © 2017 Jisu You. All rights reserved. * 
+ *Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17 
  */
 package com.mycompany.sessionbeans;
 
