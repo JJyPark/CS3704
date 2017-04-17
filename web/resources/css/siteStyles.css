@@ -515,3 +515,13 @@ in headerTemplate.xhtml
     top: 0;
     padding: 10px;
 }
+
+/*
+Notification
+*/
+.ui-growl {
+    top: 20%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -110px;
+}
