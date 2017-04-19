@@ -138,7 +138,6 @@ public class JobApp implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof JobApp)) {
             return false;
         }
@@ -151,7 +150,14 @@ public class JobApp implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.entityclasses.JobApp[ id=" + id + " ]";
+        StringBuilder str = new StringBuilder();
+        str.append("Job App : [ id=" + id + " ]");
+        str.append("\n[ time=" + time + " ]");
+        str.append("\n[ company=" + company + " ]");
+        str.append("\n[ position=" + position + " ]");
+        str.append("\n[ location=" + location + " ]");
+        str.append("\n[ type of work=" + typeOfWork + " ]");
+        return str.toString();
     }
 
 }
