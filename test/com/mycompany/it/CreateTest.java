@@ -6,6 +6,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -18,16 +19,16 @@ public class CreateTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Jason\\Documents\\NetBeansProjects\\CS3704\\web\\resources\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jason\\Documents\\NetBeansProjects\\CS3704\\web\\resources\\chromedriver.exe");
+        driver = new ChromeDriver();
         baseUrl = "http://localhost:8080/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
     public void testCreate() throws Exception {
         driver.get(baseUrl + "CS3704/faces/index.xhtml");
-        driver.findElement(By.linkText("Job Applications")).click();
+        driver.findElement(By.id("JobLink")).click();
         driver.findElement(By.id("JobAppListForm:datalist:createButton")).click();
         driver.findElement(By.id("JobAppCreateForm:time")).clear();
         driver.findElement(By.id("JobAppCreateForm:time")).sendKeys("930");
@@ -40,7 +41,7 @@ public class CreateTest {
         driver.findElement(By.id("JobAppCreateForm:location")).sendKeys("Blacksburg");
         driver.findElement(By.id("JobAppCreateForm:typeOfWork")).clear();
         driver.findElement(By.id("JobAppCreateForm:typeOfWork")).sendKeys("SDE");
-        driver.findElement(By.id("JobAppCreateForm:j_idt73")).click();
+        driver.findElement(By.id("JobAppCreateForm:create")).click();
         assertEquals("930", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[2]")).getText());
         assertEquals("VT", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")).getText());
         assertEquals("SDE", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[4]")).getText());

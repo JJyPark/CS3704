@@ -51,7 +51,7 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
                         <p:commandButton actionListener="#{jobAppController.create}" value="#{bundle.Save}" 
                                          styleClass="commandButton" icon="ui-icon-disk" ajax="false"
                                          update="display,:JobAppListForm:datalist,:growl" 
-                                         oncomplete="handleSubmit(args,'JobAppEditDialog');"/>
+                                         oncomplete="handleSubmit(args,'JobAppEditDialog');" id="edit"/>
                         &nbsp;
                         <!-- CANCEL button -->
                         <p:commandButton value="#{bundle.Cancel}" onclick="PF('JobAppEditDialog').hide()"    
