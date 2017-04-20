@@ -4,7 +4,9 @@
  */
 /**
  * Author:  Jisu You
- * Created: Apr 12, 2017
+ * Updated: Apr 12, 2017
+ * Author: Justin Park
+ * Updated: April 19, 2017
  */
 
 DROP TABLE IF EXISTS JobApp;

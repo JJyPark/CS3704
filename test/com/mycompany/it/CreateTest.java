@@ -8,6 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * 
+ * @author Jason You
+ * Created: April 19, 2017
+ * @author Justin Park
+ * Updated: April 20, 2017
+ */
 public class CreateTest {
 
     private WebDriver driver;
