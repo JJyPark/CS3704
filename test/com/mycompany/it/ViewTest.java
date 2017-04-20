@@ -1,14 +1,10 @@
 package com.mycompany.it;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class ViewTest {
 
@@ -19,7 +15,7 @@ public class ViewTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jason\\Documents\\NetBeansProjects\\CS3704\\web\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\test\\testdriver\\chromedriver.exe");
         driver = new ChromeDriver();
         baseUrl = "http://localhost:8080/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
