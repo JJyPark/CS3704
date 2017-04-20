@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "JobApp.findAll", query = "SELECT j FROM JobApp j")
     , @NamedQuery(name = "JobApp.findById", query = "SELECT j FROM JobApp j WHERE j.id = :id")
-    , @NamedQuery(name = "JobApp.findByTime", query = "SELECT j FROM JobApp j WHERE j.time = :time")
+    , @NamedQuery(name = "JobApp.findByDate", query = "SELECT j FROM JobApp j WHERE j.jobDate = :jobDate")
     , @NamedQuery(name = "JobApp.findByCompany", query = "SELECT j FROM JobApp j WHERE j.company = :company")
     , @NamedQuery(name = "JobApp.findByPosition", query = "SELECT j FROM JobApp j WHERE j.position = :position")
     , @NamedQuery(name = "JobApp.findByLocation", query = "SELECT j FROM JobApp j WHERE j.location = :location")
@@ -42,8 +42,8 @@ public class JobApp implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "time")
-    private int time;
+    @Column(name = "myDate")
+    private java.sql.Date jobDate;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 256)
@@ -64,21 +64,26 @@ public class JobApp implements Serializable {
     @Size(min = 1, max = 256)
     @Column(name = "type_of_work")
     private String typeOfWork;
-
+    
     public JobApp() {
+        java.util.Date today = new java.util.Date();
+        this.jobDate = new java.sql.Date(today.getTime());
     }
 
     public JobApp(Integer id) {
         this.id = id;
+        java.util.Date today = new java.util.Date();
+        this.jobDate = new java.sql.Date(today.getTime());
     }
 
-    public JobApp(Integer id, int time, String company, String position, String location, String typeOfWork) {
+    public JobApp(Integer id, String company, String position, String location, String typeOfWork) {
         this.id = id;
-        this.time = time;
         this.company = company;
         this.position = position;
         this.location = location;
         this.typeOfWork = typeOfWork;
+        java.util.Date today = new java.util.Date();
+        this.jobDate = new java.sql.Date(today.getTime());
     }
 
     public Integer getId() {
@@ -88,13 +93,13 @@ public class JobApp implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public int getTime() {
-        return time;
+    
+    public java.sql.Date getJobDate() {
+        return jobDate;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setJobDate(java.sql.Date jobDate) {
+        this.jobDate = jobDate;
     }
 
     public String getCompany() {
@@ -152,7 +157,7 @@ public class JobApp implements Serializable {
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append("Job App : [ id=" + id + " ]");
-        str.append("\n[ time=" + time + " ]");
+        str.append("\n[ date=" + jobDate + " ]");
         str.append("\n[ company=" + company + " ]");
         str.append("\n[ position=" + position + " ]");
         str.append("\n[ location=" + location + " ]");

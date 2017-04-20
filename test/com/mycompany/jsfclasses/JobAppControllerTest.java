@@ -34,6 +34,7 @@ public class JobAppControllerTest {
      */
     @Test
     public void testGetSelected() {
+        System.out.println("getSelected");
         JobApp expResult = null;
         JobApp result = controller.getSelected();
         assertEquals(expResult, result);
@@ -44,6 +45,7 @@ public class JobAppControllerTest {
      */
     @Test
     public void testSetSelected() {
+        System.out.println("setSelected");
         JobApp selected = new JobApp(5);
         controller.setSelected(selected);
         JobApp result = controller.getSelected();
