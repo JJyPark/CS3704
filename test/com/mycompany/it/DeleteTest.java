@@ -70,8 +70,10 @@ public class DeleteTest {
             assertEquals("No records found.", driver.findElement(By.cssSelector("tr.ui-widget-content.ui-datatable-empty-message > td")).getText());
         }
         else {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("JobAppListForm:datalist:delete")));
             String otherID = driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[1]")).getText();
+            System.out.println("TEST ID: " + testID);
+            System.out.println("OTHER ID: " + otherID);
             assertNotEquals(testID, otherID);
         }
     }
