@@ -20,6 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author Jason
+ * @author Justin Park
+ * Updated: April 19, 2017
  */
 @Entity
 @Table(name = "JobApp")
