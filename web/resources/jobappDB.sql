@@ -7,12 +7,12 @@
  * Created: Apr 12, 2017
  */
 
-DROP TABLE JobApp;
+DROP TABLE IF EXISTS JobApp;
 
 CREATE TABLE JobApp
 (
         id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        time INT NOT NULL,
+        myDate DATE NOT NULL,
         company VARCHAR(256) NOT NULL,
         position VARCHAR(256) NOT NULL,
         location VARCHAR(256) NOT NULL,

@@ -5,6 +5,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class EditTest {
 
@@ -24,25 +26,56 @@ public class EditTest {
     @Test
     public void testEdit() throws Exception {
         driver.get(baseUrl + "CS3704/faces/index.xhtml");
-        Thread.sleep(3000);
+        
+        // First add a test job application
         driver.findElement(By.id("JobLink")).click();
-        driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[4]")).click();
+        driver.findElement(By.id("JobAppListForm:datalist:createButton")).click();
+        driver.findElement(By.id("JobAppCreateForm:company")).clear();
+        driver.findElement(By.id("JobAppCreateForm:company")).sendKeys("VT");
+        driver.findElement(By.id("JobAppCreateForm:j_idt65")).click();
+        driver.findElement(By.id("JobAppCreateForm:position")).clear();
+        driver.findElement(By.id("JobAppCreateForm:position")).sendKeys("Internship");
+        driver.findElement(By.id("JobAppCreateForm:location")).clear();
+        driver.findElement(By.id("JobAppCreateForm:location")).sendKeys("Blacksburg");
+        driver.findElement(By.id("JobAppCreateForm:typeOfWork")).clear();
+        driver.findElement(By.id("JobAppCreateForm:typeOfWork")).sendKeys("SDE");
+        driver.findElement(By.id("JobAppCreateForm:create")).click();
+        
+        // Need to click twice to sort id in descending order to get the most
+        // recently added job application  
+        WebElement sortID = driver.findElement(By.id("JobAppListForm:datalist:j_idt31"));
+        sortID.click();
+        sortID.click();
+        // Required to wait due to how DOM elements may be deleted and re-added
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")));
+        
+        // Now we can edit the job application
+        driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("JobAppListForm:datalist:editButton")));
         driver.findElement(By.id("JobAppListForm:datalist:editButton")).click();
-        driver.findElement(By.id("JobAppEditForm:time")).clear();
-        driver.findElement(By.id("JobAppEditForm:time")).sendKeys("1030");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("JobAppEditForm:company")));
         driver.findElement(By.id("JobAppEditForm:company")).clear();
-        driver.findElement(By.id("JobAppEditForm:company")).sendKeys("VT1");
+        driver.findElement(By.id("JobAppEditForm:company")).sendKeys("My Company");
         driver.findElement(By.id("JobAppEditForm:position")).clear();
-        driver.findElement(By.id("JobAppEditForm:position")).sendKeys("SDE1");
+        driver.findElement(By.id("JobAppEditForm:position")).sendKeys("Full-Time");
         driver.findElement(By.id("JobAppEditForm:location")).clear();
-        driver.findElement(By.id("JobAppEditForm:location")).sendKeys("Blacksburg1");
+        driver.findElement(By.id("JobAppEditForm:location")).sendKeys("New York");
         driver.findElement(By.id("JobAppEditForm:typeOfWork")).clear();
-        driver.findElement(By.id("JobAppEditForm:typeOfWork")).sendKeys("SDE1");
+        driver.findElement(By.id("JobAppEditForm:typeOfWork")).sendKeys("SDE2");
         driver.findElement(By.id("JobAppEditForm:edit")).click();
-        assertEquals("1030", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[2]")).getText());
-        assertEquals("VT1", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")).getText());
-        assertEquals("SDE1", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[4]")).getText());
-        assertEquals("Blacksburg1", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[5]")).getText());
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")));
+
+        assertEquals("My Company", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[3]")).getText());
+        assertEquals("Full-Time", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[4]")).getText());
+        assertEquals("New York", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[5]")).getText());
+        assertEquals("SDE2", driver.findElement(By.xpath("//tbody[@id='JobAppListForm:datalist_data']/tr/td[6]")).getText());
+        
+        // Deleting the test job application
+        driver.findElement(By.cssSelector("[data-ri='" + 0 + "']")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("JobAppListForm:datalist:deleteButton")));
+        driver.findElement(By.id("JobAppListForm:datalist:deleteButton")).click();
+        driver.findElement(By.id("JobAppListForm:datalist:delete")).click();
     }
 
     @After

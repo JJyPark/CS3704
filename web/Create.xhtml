@@ -23,11 +23,6 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
 
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" columnClasses="columnOne, columnTwo" rendered="#{jobAppController.selected != null}">
-                        <p:outputLabel value="Time" for="time" />
-                        <p:inputText id="time" styleClass="dataFields" value="#{jobAppController.selected.time}" 
-                                     title="Time" required="true" 
-                                     requiredMessage="Time field is required!"/>
-
                         <p:outputLabel value="Company" for="company" />
                         <p:inputText id="company" styleClass="dataFields" value="#{jobAppController.selected.company}" 
                                      title="Company" required="true" 

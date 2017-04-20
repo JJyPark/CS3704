@@ -74,14 +74,12 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
                                 </f:facet>
                                 <h:outputText styleClass="dataFields" value="#{item.id}"/>
                             </p:column>
-
-                            <!-- Clicking the column header redisplays the table as sorted w.r.t. ADDRESS LINE
-                            in alphabetical order A to Z. Clicking it again reverses the order to Z to A. -->
-                            <p:column sortBy="#{item.time}">
+                            
+                            <p:column sortBy="#{item.jobDate}">
                                 <f:facet name="header">
-                                    <h:outputText value="Time" styleClass="facetHeader"/>
+                                    <h:outputText value="Date" styleClass="facetHeader"/>
                                 </f:facet>
-                                <h:outputText styleClass="dataFields" value="#{item.time}"/>
+                                <h:outputText styleClass="dataFields" value="#{item.jobDate}"/>
                             </p:column>
 
                             <!-- Clicking the column header redisplays the table as sorted w.r.t. STATE NAME

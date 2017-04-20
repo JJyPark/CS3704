@@ -20,8 +20,8 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
                         <h:outputText value="ID"/>
                         <h:outputText value="#{jobAppController.selected.id}" title="ID"/>
 
-                        <h:outputText value="Time"/>
-                        <h:outputText value="#{jobAppController.selected.time}" title="Time"/>
+                        <h:outputText value="Date"/>
+                        <h:outputText value="#{jobAppController.selected.jobDate}" title="Date"/>
 
                         <h:outputText value="Company"/>
                         <h:outputText value="#{jobAppController.selected.company}" title="Company"/>
@@ -41,7 +41,7 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
                     <p:spacer height="10"/> 
                     <div align="center">
                         <!-- CLOSE button -->   
-                        <p:commandButton value="#{bundle.Close}" onclick="JobAppViewDialog.hide()" styleClass="commandButton" icon="ui-icon-close"/>
+                        <p:commandButton id="closeButton" value="#{bundle.Close}" onclick="JobAppViewDialog.hide()" styleClass="commandButton" icon="ui-icon-close"/>
                     </div>
                 </h:panelGroup>
                 

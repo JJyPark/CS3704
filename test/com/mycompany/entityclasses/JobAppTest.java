@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author j.park
+ * @author Justin Park
  */
 public class JobAppTest {
     public JobApp jobApp;
@@ -56,27 +56,27 @@ public class JobAppTest {
     }
 
     /**
-     * Test of getTime method, of class JobApp.
+     * Test of getJobDate method, of class JobApp.
      */
     @Test
-    public void testGetTime() {
-        System.out.println("getTime");
-        JobApp instance = new JobApp(5, 1, "company", "position", "location", "design");
-        int expResult = 1;
-        int result = instance.getTime();
-        assertEquals(expResult, result);
+    public void testGetJobDate() {
+        System.out.println("getJobDate");
+        JobApp instance = new JobApp(5, "company", "position", "location", "design");
+        java.sql.Date today = new java.sql.Date(new java.util.Date().getTime());
+        java.sql.Date result = instance.getJobDate();
+        assertEquals(today, result);
     }
 
     /**
-     * Test of setTime method, of class JobApp.
+     * Test of setDate method, of class JobApp.
      */
     @Test
-    public void testSetTime() {
-        System.out.println("setTime");
-        int time = 12;
-        jobApp.setTime(time);
-        int result = jobApp.getTime();
-        assertEquals(time, result);
+    public void testSetJobDate() {
+        System.out.println("setJobDate");
+        java.sql.Date today = new java.sql.Date(new java.util.Date().getTime());
+        jobApp.setJobDate(today);
+        java.sql.Date result = jobApp.getJobDate();
+        assertEquals(today, result);
     }
 
     /**
@@ -84,7 +84,8 @@ public class JobAppTest {
      */
     @Test
     public void testGetCompany() {
-        JobApp instance = new JobApp(5, 1, "company", "position", "location", "design");
+        System.out.println("getCompany");
+        JobApp instance = new JobApp(5, "company", "position", "location", "design");
         String expResult = "company";
         String result = instance.getCompany();
         assertEquals(expResult, result);
@@ -95,6 +96,7 @@ public class JobAppTest {
      */
     @Test
     public void testSetCompany() {
+        System.out.println("setCompany");
         String company = "Virginia Tech";
         jobApp.setCompany(company);
         String result = jobApp.getCompany();
@@ -106,8 +108,9 @@ public class JobAppTest {
      */
     @Test
     public void testGetPosition() {
+        System.out.println("getPosition");
         String position = "position";
-        JobApp instance = new JobApp(5, 1, "company", position, "location", "design");
+        JobApp instance = new JobApp(5, "company", position, "location", "design");
         String result = instance.getPosition();
         assertEquals(position, result);
     }
@@ -117,6 +120,7 @@ public class JobAppTest {
      */
     @Test
     public void testSetPosition() {
+        System.out.println("setPosition");
         String position = "Intern";
         jobApp.setPosition(position);
         String result = jobApp.getPosition();
@@ -128,8 +132,9 @@ public class JobAppTest {
      */
     @Test
     public void testGetLocation() {
+        System.out.println("getLocation");
         String location = "Blacksburg";
-        JobApp instance = new JobApp(5, 1, "company", "position", location, "design");
+        JobApp instance = new JobApp(5, "company", "position", location, "design");
         String result = instance.getLocation();
         assertEquals(location, result);
     }
@@ -139,6 +144,7 @@ public class JobAppTest {
      */
     @Test
     public void testSetLocation() {
+        System.out.println("setLocation");
         String location = "Blacksburg";
         jobApp.setLocation(location);
         String result = jobApp.getLocation();
@@ -150,8 +156,9 @@ public class JobAppTest {
      */
     @Test
     public void testGetTypeOfWork() {
+        System.out.println("getTypeOfWork");
         String typeOfWork = "Programming";
-        JobApp instance = new JobApp(5, 1, "company", "position", "location", typeOfWork);
+        JobApp instance = new JobApp(5, "company", "position", "location", typeOfWork);
         String result = instance.getTypeOfWork();
         assertEquals(typeOfWork, result);
     }
@@ -161,6 +168,7 @@ public class JobAppTest {
      */
     @Test
     public void testSetTypeOfWork() {
+        System.out.println("setTypeOfWork");
         String typeOfWork = "Programming";
         jobApp.setTypeOfWork(typeOfWork);
         String result = jobApp.getTypeOfWork();
@@ -172,6 +180,7 @@ public class JobAppTest {
      */
     @Test
     public void testEquals() {
+        System.out.println("equals");
         int id = 19;
         jobApp.setId(id);
         JobApp sameJobApp = new JobApp(id);
@@ -186,10 +195,13 @@ public class JobAppTest {
      */
     @Test
     public void testToString() {
-        JobApp instance = new JobApp(5, 12, "Virginia Tech", "Intern", "Blacksburg", "Design");
+        System.out.println("toString");
+        JobApp instance = new JobApp(5, "Virginia Tech", "Intern", "Blacksburg", "Design");
+        java.sql.Date today = new java.sql.Date(new java.util.Date().getTime());
+        String theDate = today.toString();
         StringBuilder str = new StringBuilder();
         str.append("Job App : [ id=5 ]");
-        str.append("\n[ time=12 ]");
+        str.append("\n[ date=" + theDate + " ]");
         str.append("\n[ company=Virginia Tech ]");
         str.append("\n[ position=Intern ]");
         str.append("\n[ location=Blacksburg ]");
