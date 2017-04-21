@@ -68,7 +68,7 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
 
                             <!-- Clicking the column header redisplays the table as sorted w.r.t. COMPANY TITLE  
                             in alphabetical order A to Z. Clicking it again reverses the order to Z to A. -->
-                            <p:column sortBy="#{item.id}">
+                            <p:column sortBy="#{item.id}" id="sortByIDButton">
                                 <f:facet name="header">
                                     <h:outputText value="ID" styleClass="facetHeader"/>
                                 </f:facet>
