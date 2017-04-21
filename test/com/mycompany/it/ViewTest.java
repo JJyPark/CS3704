@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created: April 19, 2017
  * @author Justin Park
  * Updated: April 20, 2017
+ * @author Chris Hill
+ * Updated: April 21, 2017
  */
 public class ViewTest {
 
@@ -24,7 +26,19 @@ public class ViewTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\test\\testdriver\\chromedriver.exe");
+        
+        String driverLocation = System.getProperty("user.dir");
+        String osName = System.getProperty("os.name").toLowerCase();
+        
+        if (osName.contains("win")) {
+            driverLocation += "\\test\\testdriver\\chromedriver.exe";
+        }
+        else if (osName.contains("nix") || osName.contains("nux")) {
+            driverLocation += "/test/testdriver/chromedriver";
+        }
+        
+        System.setProperty("webdriver.chrome.driver", driverLocation);
+        
         driver = new ChromeDriver();
         baseUrl = "http://localhost:8080/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -39,7 +53,6 @@ public class ViewTest {
         driver.findElement(By.id("JobAppListForm:datalist:createButton")).click();
         driver.findElement(By.id("JobAppCreateForm:company")).clear();
         driver.findElement(By.id("JobAppCreateForm:company")).sendKeys("VT");
-        driver.findElement(By.id("JobAppCreateForm:j_idt65")).click();
         driver.findElement(By.id("JobAppCreateForm:position")).clear();
         driver.findElement(By.id("JobAppCreateForm:position")).sendKeys("Internship");
         driver.findElement(By.id("JobAppCreateForm:location")).clear();
@@ -50,7 +63,7 @@ public class ViewTest {
         
         // Need to click twice to sort id in descending order to get the most
         // recently added job application  
-        WebElement sortID = driver.findElement(By.id("JobAppListForm:datalist:j_idt31"));
+        WebElement sortID = driver.findElement(By.id("JobAppListForm:datalist:sortByIDButton"));
         sortID.click();
         sortID.click();
         // Required to wait due to how DOM elements may be deleted and re-added
