@@ -65,15 +65,6 @@ Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17
                             <!-- The "header" and "footer" facets are defined for the p:dataTable. See PrimeFaces
                             User Guide at http://www.primefaces.org/docs/guide/primefaces_user_guide_5_3.pdf
                             -->
-
-                            <!-- Clicking the column header redisplays the table as sorted w.r.t. COMPANY TITLE  
-                            in alphabetical order A to Z. Clicking it again reverses the order to Z to A. -->
-                            <p:column sortBy="#{item.id}" id="sortByIDButton">
-                                <f:facet name="header">
-                                    <h:outputText value="ID" styleClass="facetHeader"/>
-                                </f:facet>
-                                <h:outputText styleClass="dataFields" value="#{item.id}"/>
-                            </p:column>
                             
                             <p:column sortBy="#{item.jobDate}">
                                 <f:facet name="header">

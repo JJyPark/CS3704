@@ -1,5 +1,6 @@
 /*
- *Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17 
+ * Created by Osman Balci on 2017.01.28  * 
+ * Copyright © 2017 Osman Balci. All rights reserved. * 
  */
 package com.mycompany.sessionbeans;
 
@@ -8,11 +9,12 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author Jason
+ * @author Balci
+ * @param <T>
  */
 public abstract class AbstractFacade<T> {
 
-    private Class<T> entityClass;
+    private final Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;

@@ -1,6 +1,3 @@
-/*
- *Created by Jason You, Chris Hill, Justin Park, Shawn Zhang on 2017.04.17 
- */
 package com.mycompany.jsfclasses.util;
 
 import java.util.List;
@@ -26,6 +23,10 @@ public class JsfUtil {
         return items;
     }
 
+    /**
+     * 
+     * @return true if the validationFailed() method has been called for the current request.
+     */
     public static boolean isValidationFailed() {
         return FacesContext.getCurrentInstance().isValidationFailed();
     }
