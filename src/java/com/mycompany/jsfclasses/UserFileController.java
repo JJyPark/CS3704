@@ -191,7 +191,7 @@ public class UserFileController implements Serializable {
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserFileCreated"));
+        persist(PersistAction.CREATE, "UserFileCreated");
 
         /*
         JsfUtil.isValidationFailed() returns TRUE if the validationFailed() method has been called
@@ -204,11 +204,11 @@ public class UserFileController implements Serializable {
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UserFileUpdated"));
+        persist(PersistAction.UPDATE, "UserFileUpdated");
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UserFileDeleted"));
+        persist(PersistAction.DELETE, "UserFileDeleted");
 
         /*
         JsfUtil.isValidationFailed() returns TRUE if the validationFailed() method has been called
@@ -243,11 +243,11 @@ public class UserFileController implements Serializable {
                 if (msg.length() > 0) {
                     JsfUtil.addErrorMessage(msg);
                 } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                    JsfUtil.addErrorMessage(ex, "PersistenceErrorOccured");
                 }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                JsfUtil.addErrorMessage(ex, "PersistenceErrorOccured");
             }
         }
     }

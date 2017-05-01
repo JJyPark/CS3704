@@ -73,48 +73,12 @@ Copyright © 2017 Osman Balci. All rights reserved.
 
                             <p:ajax event="rowUnselect" update="uploadButton downloadButton deleteButton displayButton"/>
 
-                            <!-- FILE ID column -->
-                            <p:column sortBy="#{item.id}" style="width:60px;">
-                                <f:facet name="header">
-                                    <h:outputText value="File Id"/>
-                                </f:facet>
-                                <div align="center"><h:outputText value="#{item.id}"/></div>
-                            </p:column>
-
-                            <!-- IMAGE PREVIEW column -->
-                            <p:column style="width:100px;">
-                                <f:facet name="header">
-                                    <h:outputText value="Image Preview"/>
-                                </f:facet>
-                                <div align="center">
-                                    <h:graphicImage class="previewImage" value="#{userFileController.imageFile(item.id)}" />
-                                </div>
-                            </p:column>
-
                             <!-- FILENAME column -->
                             <p:column sortBy="#{item.filename}">
                                 <f:facet name="header">
                                     <h:outputText value="File Name"/>
                                 </f:facet>
                                 <h:outputText value="#{userFileController.cleanedFilenameForFileId(item.id)}"/>
-                            </p:column>
-
-                            <!-- USER ID column -->
-                            <p:column style="width:60px;">
-                                <f:facet name="header">
-                                    <h:outputText value="User Id"/>
-                                </f:facet>
-                                <div align="center"><h:outputText value="#{item.userId}"/></div>
-                            </p:column>
-
-                            <!-- USER PHOTO column -->
-                            <p:column style="width:100px;">
-                                <f:facet name="header">
-                                    <h:outputText value="User Photo"/>
-                                </f:facet>
-                                <div align="center">
-                                    <h:graphicImage class="previewProfilePhoto" value="#{accountManager.userPhoto()}" />
-                                </div>
                             </p:column>
 
                             <!--
